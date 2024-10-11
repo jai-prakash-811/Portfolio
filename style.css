@@ -17,7 +17,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
+    padding: 35px 10%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -26,7 +26,7 @@ body{
 }
 
 .logo{
-    margin-top: -60%;
+    margin-top: -55%;
     font-size: 30px;
     color: #ededed;
     text-decoration: none;
@@ -35,15 +35,16 @@ body{
     justify-content: center;
     top: 10%;
     left: 20%;
-    transform: .5s;
-    font-style: bold;
+    opacity: 0;
+    animation: slidTop 1s ease forwards;
 }
 .logo:hover{
     color: red;
 }
 .nvabar{
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    margin-top: -2%;
 }
 .nvabar a {
     display: flex;
@@ -54,46 +55,127 @@ body{
     font-weight: 500;
     margin-left: 35px;
     transition: .3s;
+    padding: 10px 20px;
+    position: relative;
+    opacity: 0;
+    animation: slidTop .5s ease forwards;
+    animation-delay: 1s;
+}
+.nvabar a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    border-bottom: 3px solid rgb(3, 17, 177);
+    transition: 0.4s linear;
+}
+.nvabar a::before{
+    width: 90%;
 }
 .nvabar a:hover,
 .nvabar a.active {
-          color: #1008f3;
+          color: #3c0a81;
+}
+.img-glowing{
+    width: 410px;
+    height: 410px;
+    opacity: 0;
+    animation: ZoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2.1s 3.1s;
+}
+.img-glowing .glowing-circle{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.img-glowing .glowing-circle::after{
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: #5796eed6;
+    border-radius: 50%;
+}
+.glowing-circle span{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgb(250, 68, 2), rgb(1, 255, 56));
+    border-radius: 50%;
+    animation: circleRotate 5s linear infinite;
+}
+.glowing-circle span::after{
+    filter: blur(15px);
+}
+.glowing-circle .image{
+    position: relative;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden;
+}
+.image img {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 350px;
+    object-fit: cover;
 }
 .home{
     height: 100vh;
-    background: url('jai2.0.jpg') no-repeat;
+    background: #5796eed6;
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    padding: 0 10%;
+    padding: 70px 10% 0;
+    justify-content: space-between;
 }
 .home-content{
     max-width: 600px;
+    margin-left: -35px;
 }
 .home-content h1{
     font-size: 40px;
     font-weight: 600;
     line-height: 1.5;
+    opacity: 0;
+    animation: slidRight 1s ease forwards;
+    animation-duration: .7s;
 }
 .home-content h3{
     font-size: 30px;
     font-weight: 700;
-    color: #08c6f0;
+    color: #0916d1;
+    opacity: 0;
+    animation: slidLeft 1s ease forwards;
+    animation-duration: 1s;
 }
 .home-content p{
     font-style: italic;
     font-size: 30px;
     margin: 20px 0 40px;
     color: #fc1e05;
+    opacity: 0;
+    animation: slidLeft 1s ease forwards;
+    animation-duration: 1.2s;
 }
 .home-content details{
     font-size: 20px;
-    color: #08c6f0;
+    color: #071952;
+    font-style: bold;
 }
 .home-content details p{
     font-size: 19px;
-    color: rgb(143, 116, 224);
+    color: rgb(75, 33, 203);
     font-style: normal;
 }
 .home-content.btn-box{
@@ -122,19 +204,22 @@ body{
     z-index: 1;
     overflow: hidden;
     transition: .5s;
+    opacity: 0;
+    animation: slidBottom 2s ease forwards;
+    animation-duration: 1.3s;
 }
 .btn-box a:hover{
-    color: #08c6f0;
+    color: #081bf0;
 }
 .btn-box a::nth-child(2) {
     background: transparent;
-    color: #08c6f0;
+    color: #43d9fb;
 }
 .btn-box:nth-child(2):hover{
     color: #0a0a0a;
 }
 .btn-box a:nth-child(2)::before {
-    background: #081b29;
+    background: #849fb2;
 
 }
 .btn-box a::before {
@@ -144,7 +229,7 @@ body{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #081b29;
+    background-color: #849fb2;
     z-index: -1;
     transition: .5s;
 }
@@ -167,16 +252,36 @@ body{
       width: 50px;
       height: 50px;
       background: transparent;
-      border: 1px solid #9b4ce6;
+      border: 1px solid #7f01f5;
       border-radius: 50%;
       font-size: 30px;
-      color: #00abf0;
+      color: #0c1978;
       text-decoration: none;
     z-index: 1;
     overflow: hidden;
 }
+.home-sci a:nth-child(1){
+    opacity: 0;
+    animation: slidLeft 1s ease forwards;
+    animation-duration: 2s;
+}
+.home-sci a:nth-child(2){
+    opacity: 0;
+    animation: slidTop 1s ease forwards;
+    animation-duration: 2s;
+}
+.home-sci a:nth-child(3){
+    opacity: 0;
+    animation: slidBottom 1s ease forwards;
+    animation-duration: 2s;
+}
+.home-sci a:nth-child(4){
+    opacity: 0;
+    animation: slidRight 1s ease forwards;
+    animation-duration: 2s;
+}
 .home-sci a:hover{
-    color: #081b29;
+    color: #19527a;
 }
 .home-sci a::before{
     content: '';
@@ -185,7 +290,7 @@ body{
     left: 0;
     width: 0;
     height: 100%;
-    background: #08c6f0;
+    background: #dde6e8;
     z-index: -1;
     transition: .6s;
 }
@@ -219,23 +324,23 @@ body{
     }
 }
 .fa-brands{
-    color: black;
+    color: rgb(104, 24, 24);
     font-size: 1.4rem;
 }
 
 #about-me{
-    background-color: #010127;
+    background-color: #36c2ce;
     max-width: 900px;
     margin: 50px auto;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 0 20px #0836de;
+    box-shadow: 0 0 20px #081499;
     position: relative;
     overflow: hidden;
 }
 #about-me h2{
     text-align: center;
-    color: rgb(211, 155, 236);
+    color: rgb(79, 26, 104);
     font-size: 32px;
     margin-bottom: 20px;
     position: relative;
@@ -245,7 +350,7 @@ body{
     content: '';
     width: 50px;
     height: 3px;
-    background: gray;
+    background: rgb(229, 100, 100);
     display: block;
     margin: 10px auto 0;
 }
@@ -266,7 +371,8 @@ body{
 .about-image img{
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgb(251, 66, 66, 0.885), 0 0 50px rgb(36, 90, 253);
 }
 
 .about-content{
@@ -275,11 +381,11 @@ body{
 }
 .about-content u {
     font-size: 15px;
-    color: #09e2fa
+    color: #fc4b05;
 }
 
 #about-me p{
-    color: rgb(4, 109, 150);
+    color: rgb(4, 68, 93);
     line-height: 1.8;
     margin-bottom: 15px;
     text-align: justify;
@@ -357,7 +463,7 @@ nav ul li a {
     margin-bottom: 6rem;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgb(62, 62, 224);
+    box-shadow: 0 0 20px rgb(103, 103, 232);
     background-color: white;
 }
 
@@ -396,7 +502,7 @@ nav ul li a {
 }
 
 .skill-level {
-    background-color: blue;
+    background-color: rgb(68, 68, 201);
     height: 100%;
     width: 0;
     position: absolute;
@@ -473,7 +579,7 @@ nav ul li a {
     color: rgb(244, 31, 20);
 }
 body{
-    background-color: #010127;
+    background-color: #478ccf;
 }
 
 .contact{
@@ -490,7 +596,7 @@ body{
     width: 100%;
     padding: 25px;
     margin-top: 40px;
-    background-color: darkblue;
+    background-color: rgb(74, 74, 195);
 }
 /* footer{
     background-color: var(--primary-black);
@@ -500,7 +606,7 @@ body{
 } */
 /* Footer */
 .footer {
-    background-color: rgb(160, 72, 242);
+    background-color: #4535c1;
     color: white;
     padding: 50px 0;
 }
@@ -582,4 +688,77 @@ body{
     color: var(--primary-dullwhite);
     line-height: 1.6;
     margin-bottom: 10px;
+}
+
+/*KEYFREAMS ANIMATION*/
+@keyframes slidTop {
+   0%{
+    opacity: 0;
+    transform: translateY(100px);
+   }    
+   100%{
+    opacity: 1;
+    transform: translateY(0);
+   }
+}
+@keyframes slidRight {
+    0%{
+     opacity: 0;
+     transform: translateX(100px);
+    }    
+    100%{
+     opacity: 1;
+     transform: translateX(0);
+    }
+ }
+ @keyframes slidLeft {
+    0%{
+     opacity: 0;
+     transform: translateX(-100px);
+    }    
+    100%{
+     opacity: 1;
+     transform: translateX(0);
+    }
+ }
+ @keyframes slidBottom {
+    0%{
+     opacity: 0;
+     transform: translateY(-100px);
+    }    
+    100%{
+     opacity: 1;
+     transform: translateY(0);
+    }
+ }
+ @keyframes ZoomIn{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+ } 
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-25px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+} 
+
+@keyframes circleRotate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
 }
