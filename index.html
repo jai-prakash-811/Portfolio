@@ -3,173 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Jai Prakash Thakur | Web Developer</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #080808;
+            --second-bg-color: #131313;
+            --text-color: #ededed;
+            --main-color: #0ef; /* Neon Cyan Accent */
+            --card-bg: #1f242d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: rgba(0, 0, 0, 0.7); /* Glassmorphism */
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            color: var(--main-color);
+            text-shadow: 0 0 10px var(--main-color);
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+            text-shadow: 0 0 10px var(--main-color); 
+        }
+
+        /* --- HOME SECTION --- */
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Social Icons */
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            font-size: 2rem;
+            color: var(--main-color);
+            margin: 3rem 1.5rem 3rem 0;
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 20px var(--main-color);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 10px var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+            background: transparent;
+            color: var(--main-color);
+            border: 2px solid var(--main-color);
+        }
+
+        /* Image Glow Effect */
+        .home-img img {
+            width: 35vw;
+            border-radius: 50%;
+            box-shadow: 0 0 25px var(--main-color);
+            transition: 0.4s ease;
+            cursor: pointer;
+        }
+
+        .home-img img:hover {
+            box-shadow: 0 0 50px var(--main-color),
+                        0 0 100px var(--main-color);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background: var(--second-bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-img img {
+            width: 30vw;
+            border-radius: 20px;
+            border: 2px solid var(--main-color);
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills h2 {
+            margin-bottom: 5rem;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .skills-container .skill-box {
+            flex: 1 1 30rem;
+            background: var(--card-bg);
+            padding: 3rem 2rem 4rem;
+            border-radius: 2rem;
+            text-align: center;
+            border: .2rem solid var(--bg-color);
+            transition: .5s ease;
+        }
+
+        .skills-container .skill-box:hover {
+            border-color: var(--main-color);
+            transform: scale(1.02);
+        }
+
+        .skill-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem; 
+        }
+
+        .skill-bar {
+            padding: 1rem 0;
+            text-align: left;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bar {
+            width: 100%;
+            height: 1rem;
+            background: var(--bg-color);
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .bar span {
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background: var(--main-color);
+            border-radius: 1rem;
+            box-shadow: 0 0 5px var(--main-color);
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background: var(--second-bg-color);
+            padding: 2rem 9%;
+            text-align: center;
+        }
+        
+        .footer-text p {
+            font-size: 1.6rem;
+        }
+
+        .footer-iconTop a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTop a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-iconTop a i {
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 991px) {
+            .header { padding: 2rem 3%; }
+            section { padding: 10rem 3% 2rem; }
+            .footer { padding: 2rem 3%; }
+        }
+
+        @media (max-width: 768px) {
+            .header { background: var(--bg-color); }
+            .home { flex-direction: column; }
+            .home-content h3 { font-size: 2.6rem; }
+            .home-content h1 { font-size: 5rem; }
+            .home-img img { width: 70vw; margin-top: 4rem; }
+            .about { flex-direction: column-reverse; }
+            .about-img img { width: 70vw; margin-top: 4rem; }
+        }
+    </style>
 </head>
 <body>
+
     <header class="header">
-        <b><a href="#" class="logo">Portfolio.</a></b>
-        
-        <nav class="nvabar">
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Skills</a>
-            <a href="#">Project</a>
-            <A href="#">Contact</A>
+        <a href="#" class="logo">Portfolio.</a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
-    <section class="home">
+
+    <section class="home" id="home">
         <div class="home-content">
-            <h1>Hi! My Self Jai Prakash Thakur</h1>
-            <h3>Web Developer</h3>
-            <p>
-              <u><b>Hello! I'm Jai</u></b>
-               <details>
-                    <p> I purchsing BCA in S.m.S. Lucknow. i want to do web development.
-                        And my intersting is travelling and explore new citys.
-        </details>
-            </p>
-            <div class="btn-box">
-                <a href="#">Hire Me</a>
-                <a href="#">Let's Talk</a>
+            <h3>Hello, It's Me</h3>
+            <h1>Jai Prakash Thakur</h1>
+            <h3>And I'm a <span>Web Developer</span></h3>
+            <p>"I am a passionate Web developer currently pursuing my Master of Computer Applications (MCA) at LNCT Bhopal. <br>
+                Having completed my graduation in Computer Applications, <br>
+                I am now focused on mastering advanced web technologies and mern Stack principles.</p>
+            
+            <div class="social-media">
+                <a href="https://www.facebook.com/jaiprakash.thakur.33449/" target="_blank"><i class='bx bxl-facebook'></i></a>
+                <a href="https://x.com/Jai_Prakash_8" target="_blank"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.instagram.com/jai__prakash_08/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.linkedin.com/in/jai-prakash-thakur-4263ba355/" target="_blank"><i class='bx bxl-linkedin'></i></a>
             </div>
+
+            <a href="JaiPrakashThakurResume.pdf[1].pdf" download class="btn">Download CV</a>
         </div>
 
-        <div class="home-sci">
-            <a href="https://www.instagram.com/jai__prakash_08/"><i class='bx bxl-instagram'></i></a>
-            <a href="https://www.facebook.com/jaiprakash.thakur.33449/"><i class='bx bxl-facebook-circle'></i></a>
-            <a href="https://www.linkedin.com/in/jai-prakash-thakur-4263ba355/"><i class='bx bxl-linkedin-square' ></i></a>
-            <a href="https://x.com/Jai_Prakash_8"><i class='bi bi-twitter-x'></i></a>
-        </div>
-
-        <span class="home-imgHover"></span>
-        <div class="img-glowing">
-            <div class="glowing-circle">
-            <span></span>
-            <span></span>
-            <div class="image">
-                <img src="jai2.0.png" alt="">
-            </div>
-            </div>
-        </div>
-
-    </section>
-    <!--Heros section-->
-        <div class="profile-container"></div>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#skills-section">About</a></li>
-        </ul>
-    </nav>
-    <section id="about-me">
-        <h2>All about me</h2>
-        <div class="about-container">
-            <div class="about-image">
-                <img src="1676812309814.jpg" alt="it's me">
-            </div>
-            <div class="about-content">
-                <p>
-                    Hello! I'm a dedicated web developer specializing in full stack web development. I have experience in frontend and some of backend technologies, and I am currently interning at Codsoft with study of Bachelor Of Computer Application as a student of 3rd year. My enthusiasm for web development drives me to continuously learn and improve my skills.
-                </p>
-                <p>
-                    Recently, I have recieved offer letter from <u>Cisco, CodeAlpha and Codsoft</u>, and I recieved a data scicense certificate from Cisco.
-                </p>
-                <p>
-                    In addition to my professional interests, I enjoy coding and creating something unique as a combination of them. I'm always excited to take on new challenges and expand my horizons.
-                </p>
-            </div>
+        <div class="home-img">
+            <img src="Alexei.jpg" alt="Profile Picture">
         </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <nav>
-        <ul>
-            <u><li><a href="#skills-section">Go to Skills</a></li></u>
-        </ul>
-    </nav>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="1676812309814.jpg" alt="About Me">
+        </div>
+
+        <div class="about-content">
+    <h2 class="heading">About <span>Me</span></h2>
+    <h3>MCA Student & Web Developer</h3>
+    <p>
+        Hello! I'm Jai Prakash, a dedicated developer currently pursuing my <b>Master of Computer Applications (MCA)</b> at <b>LNCT Bhopal</b>.
+        <br><br>
+        With a strong foundation from my BCA graduation and practical experience as an intern at <b>CodSoft</b>, I specialize in building responsive web applications. I have received recognition from <u>Cisco and CodeAlpha</u> and am constantly upgrading my skills in Full Stack Development.
+        <br><br>
+        I am eager to apply my advanced studies to solve real-world problems.
+    </p>
     
-    <section class="skills-section">
-        <h2>Technical Skills</h2>
-        <ul class="skills-lists">
-            <li>
-                <span class="skill-name">HTML</span>
-                <div class="skill-bar">
-                    <div class="skill-level" data-level="80%">80%</div>
-                </div>
-            </li>
-            <li>
-                <span class="skill-name">CSS</span>
-                <div class="skill-bar">
-                    <div class="skill-level" data-level="65%">65%</div>
-                </div>
-            </li>
-            <li>
-                <span class="skill-name">JavaScript</span>
-                <div class="skill-bar">
-                    <div class="skill-level" data-level="40%">40%</div>
-                </div>
-            </li>
-            <li>
-                <span class="skill-name">Python</span>
-                <div class="skill-bar">
-                    <div class="skill-level" data-level="60%">60%</div>
-                </div>
-            </li>
-            <li>
-                <span class="skill-name">Java</span>
-                <div class="skill-bar">
-                    <div class="skill-level" data-level="50%">50%</div>
-                </div>
-            </li>
-        </ul>
+    <a href="#" class="btn">Read More</a>
+</div>
     </section>
 
-    <section class="resume">
-        <div class="resume">
-            <a href="Picsart_24-09-16_20-26-12-165.jpg" class="nav-btn">Resume >>></a>
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        
+        <div class="skills-container">
+            <div class="skill-box">
+                <h3>Frontend Development</h3>
+                
+                <div class="skill-bar">
+                    <div class="info">
+                        <span>HTML</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="bar"><span style="width: 80%"></span></div>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="info">
+                        <span>CSS</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="bar"><span style="width: 65%"></span></div>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="info">
+                        <span>JavaScript</span>
+                        <span>40%</span>
+                    </div>
+                    <div class="bar"><span style="width: 40%"></span></div>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h3>Backend & Languages</h3>
+                
+                <div class="skill-bar">
+                    <div class="info">
+                        <span>Python</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="bar"><span style="width: 60%"></span></div>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="info">
+                        <span>Java</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="bar"><span style="width: 50%"></span></div>
+                </div>
+            </div>
         </div>
     </section>
-    
 
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h2>About Me</h2>
-                <p>Hello! I'm a web developer passionate about creating interactive and beautiful web applications. Feel free to explore my work and get in touch for collaborations!</p>
-            </div>
-            <div class="footer-section links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-section social">
-                <h2>Follow Me</h2>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/jai-prakash-thakur-4263ba355/" target="_blank" class="skill">
-                        <i class="fa-brands fa-linkedin"></i>
-                    </a></li>
-                    <li><a href="https://x.com/Jai_Prakash_8" target="_blank" class="skill">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a></li>
-                    <li><a href="https://github.com/jai-prakash-811?tab=following" target="_blank" class="skill">
-                        <i class="fa-brands fa-github"></i>
-                    </a></li>
-                </ul>
-            </div>
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by Jai Prakash Thakur | All Rights Reserved.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; @2024 Jai Prakash. All rights reserved.</p>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
         </div>
-       </footer>
-    </div>
-</div>
+    </footer>
 
-    </body>
+</body>
 </html>
